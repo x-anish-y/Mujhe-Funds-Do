@@ -1,8 +1,6 @@
 import NextAuth from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
-import mongoose from "mongoose";
 import User from "@/app/models/User";
-import Payment from "@/app/models/Payment";
 import connectDB from "@/app/db/connectdb";
 
 export const authOptions = {
