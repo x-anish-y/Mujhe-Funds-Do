@@ -2,8 +2,6 @@
 import React, { useEffect, useState } from 'react'
 import Script from 'next/script'
 import { useParams } from "next/navigation"
-import { Amiko } from 'next/font/google'
-import { useSession } from 'next-auth/react'
 import { fetchuser, fetchpayments, initiate } from '@/app/actions/useractions'
 
 const PaymentPage = () => {
@@ -161,3 +159,4 @@ const PaymentPage = () => {
 }
 
 export default PaymentPage
+
