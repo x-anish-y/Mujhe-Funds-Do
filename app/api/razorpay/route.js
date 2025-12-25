@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { validatePaymentVerification } from "razorpay/dist/utils/razorpay-utils";
 import Payment from "@/app/models/Payment";
-import Razorpay from "razorpay";
 import connectDB from "@/app/db/connectdb";
 
 export const POST = async (request) => {
@@ -9,7 +8,6 @@ export const POST = async (request) => {
     let body = await request.formData();
     body = Object.fromEntries(body);
 
-    // Check if razorpay orderid is present on the server
     let p = await Payment.findOne({ oid: body.razorpay_order_id });
     if(!p){
         return NextResponse.json({success: false, message: "Order not found"}, {status: 400});
