@@ -39,7 +39,7 @@ const Dashboard = () => {
             <div className='container mx-auto py-5 px-6 '>
                 <h1 className='text-center my-5 text-3xl font-bold'>Edit Your Profile</h1>
 
-                <form className="max-w-2xl mx-auto" onSubmit={handleSubmit}>
+                <form className="max-w-2xl mx-auto">
 
                     <div className='my-2'>
                         <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
@@ -91,3 +91,4 @@ const Dashboard = () => {
 
 
 export default Dashboard
+
