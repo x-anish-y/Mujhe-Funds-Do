@@ -4,7 +4,6 @@ import Razorpay from "razorpay"
 import Payment from "@/app/models/Payment"
 import connectDB from "@/app/db/connectdb"
 import User from "../models/User"
-import { Odibee_Sans } from "next/font/google"
 
 export const initiate = async (amount, to_username, paymentfrom) => {
     try {
@@ -84,4 +83,5 @@ export const updateprofile = async (oldusername, data) => {
         console.error("Error in updateprofile:", error);
         return {error: error.message};
     }
+
 }
