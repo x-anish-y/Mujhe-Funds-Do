@@ -3,9 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from 'next/navigation'
 import { fetchuser, updateprofile } from '@/app/actions/useractions'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Bounce } from 'react-toastify';
 
 const Dashboard = () => {
     const { data: session, update } = useSession()
@@ -32,35 +29,6 @@ const Dashboard = () => {
         setform({ ...form, [e.target.name]: e.target.value })
     }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        let a = await updateprofile(session.user.name, form)
-        if(!a.error) {
-            toast('Profile Updated', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                transition: Bounce,
-            });
-        } else {
-            toast(a.error, {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                transition: Bounce,
-            });
-        }
-    }
 
 
 
@@ -68,24 +36,10 @@ const Dashboard = () => {
 
     return (
         <>
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
-            {/* Same as */}
-            <ToastContainer />
             <div className='container mx-auto py-5 px-6 '>
                 <h1 className='text-center my-5 text-3xl font-bold'>Edit Your Profile</h1>
 
-                <form className="max-w-2xl mx-auto" onSubmit={handleSubmit}>
+                <form className="max-w-2xl mx-auto">
 
                     <div className='my-2'>
                         <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
@@ -134,5 +88,6 @@ const Dashboard = () => {
         </>
     )
 }
+
 
 export default Dashboard
