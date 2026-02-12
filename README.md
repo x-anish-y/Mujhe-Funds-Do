@@ -2,6 +2,8 @@
 
 Mujhe-Funds-Do is a full-stack crowdfunding web application built using Next.js and MongoDB.  
 It allows users to create fundraising campaigns and enables others to support them by contributing funds.
+![Demo](demo.gif)
+
 
 ---
 
